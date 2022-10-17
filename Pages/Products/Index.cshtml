@@ -1,0 +1,32 @@
+﻿@page
+@model WebApplication1.Pages.Products.IndexModel
+@{
+}
+
+<h2>List of Products</h2>
+<a class="btn btn-primary btn-sm" href="/Products/Create">New Product</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Products is not null){
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.Description</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Products/Update?id=@product.Id">Edit</a>
+                        <a class="btn btn-primary btn-sm" href="/Products/Delete?id=@product.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

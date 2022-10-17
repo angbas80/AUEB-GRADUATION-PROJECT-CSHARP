@@ -1,0 +1,38 @@
+﻿@page
+@model WebApplication1.Pages.Products.CreateModel
+@{
+}
+
+<h2 class="mb-3">New Product</h2>
+@if (!Model.ErrorMessage.Equals(""))
+{
+    <h2><strong>@Model.ErrorMessage</strong></h2>
+}
+@if (!Model.SuccessMessage.Equals(""))
+{
+    <h2><strong>@Model.SuccessMessage</strong></h2>
+}
+<form method="POST">
+    <div class="row mb-3">
+        <label for="productName" class="col-md-1 col-form-label">Product's Name</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="productName" id="productName"
+                    placeholder="Enter product's name" value="@Model.ProductDto.Name"/>
+        </div>
+    </div>
+        <div class="row mb-3">
+        <label for="productDescription" class="col-md-1 col-form-label">Product's Description</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="productDescription" id="productDescription"
+                    placeholder="Enter product's description" value="@Model.ProductDto.Description"/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="offset-md-1 col-md-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="offset-md-1 col-md-3 d-grid">
+            <a href="/" role="button" class="btn btn-outline-primary">Cancel</a>
+        </div>
+    </div>
+</form>
